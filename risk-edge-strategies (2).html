@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Edge Systems LLP | Gambling Syndicate</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --slate:       #1a2332;
+  --slate-mid:   #243040;
+  --slate-light: #2e3d52;
+  --green:       #2d6a4f;
+  --green-light: #40916c;
+  --green-pale:  #d8f3dc;
+  --offwhite:    #f8f6f2;
+  --warm-grey:   #ece9e3;
+  --text:        #1a2332;
+  --muted:       #6b7a8d;
+  --white:       #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--offwhite);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(26,35,50,0.96);
+  backdrop-filter: blur(14px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%; height: 68px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+.nav-logo .accent { color: #74c69d; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #74c69d; }
+.nav-cta {
+  background: var(--green);
+  color: var(--white) !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: 3px;
+  opacity: 1 !important;
+}
+.nav-cta:hover { background: var(--green-light) !important; color: var(--white) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--slate);
+  display: flex; align-items: center;
+  padding: 0 6%;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 80% 50%, rgba(45,106,79,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(45,106,79,0.06) 0%, transparent 60%);
+}
+.hero-line {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(to right, transparent, #74c69d, #2d6a4f, transparent);
+}
+.hero-content {
+  max-width: 1160px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem; align-items: center;
+  padding-top: 68px;
+  position: relative; z-index: 1;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  color: #74c69d;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.8rem;
+}
+.hero-tag::before {
+  content: '';
+  width: 24px; height: 1.5px;
+  background: #74c69d;
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: clamp(2.6rem, 4.5vw, 4rem);
+  line-height: 1.12;
+  margin-bottom: 1.6rem;
+}
+h1 em {
+  font-style: italic;
+  color: #74c69d;
+}
+.hero-body {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 460px;
+  margin-bottom: 2.5rem;
+}
+.hero-body strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 3px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.22s;
+}
+.btn-green {
+  background: var(--green);
+  color: var(--white);
+}
+.btn-green:hover {
+  background: var(--green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(45,106,79,0.4);
+}
+.btn-outline {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  margin-left: 0.8rem;
+}
+.btn-outline:hover {
+  border-color: #74c69d;
+  color: #74c69d;
+}
+
+/* Hero panel */
+.hero-panel {
+  background: var(--slate-mid);
+  border: 1px solid rgba(116,198,157,0.18);
+  border-radius: 10px;
+  padding: 2.4rem;
+  position: relative;
+}
+.hero-panel::before {
+  content: '';
+  position: absolute; top: 0; left: 1.5rem; right: 1.5rem; height: 2px;
+  background: linear-gradient(to right, transparent, #74c69d, transparent);
+  border-radius: 1px;
+}
+.panel-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1.05rem;
+  margin-bottom: 1.4rem;
+}
+.panel-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  gap: 1rem;
+}
+.panel-row:last-child { border-bottom: none; }
+.panel-label { color: rgba(255,255,255,0.45); font-size: 0.84rem; }
+.panel-val { color: var(--white); font-size: 0.88rem; font-weight: 500; text-align: right; max-width: 55%; }
+.panel-val.green { color: #74c69d; }
+.pill {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: rgba(116,198,157,0.12);
+  border: 1px solid rgba(116,198,157,0.3);
+  color: #74c69d;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  margin-top: 1.4rem;
+}
+.pill-dot {
+  width: 6px; height: 6px;
+  background: #74c69d;
+  border-radius: 50%;
+  animation: blink 2.2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+/* ── SECTIONS ── */
+section { padding: 7rem 6%; }
+.inner { max-width: 1160px; margin: 0 auto; }
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.9rem;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  line-height: 1.18;
+  margin-bottom: 1.1rem;
+}
+.lead {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.85;
+  max-width: 580px;
+}
+
+/* ── HOW IT WORKS ── */
+#how { background: var(--white); }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 4rem;
+  border: 1px solid var(--warm-grey);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.step {
+  padding: 2.4rem 2rem;
+  border-right: 1px solid var(--warm-grey);
+  transition: background 0.25s;
+}
+.step:last-child { border-right: none; }
+.step:hover { background: var(--offwhite); }
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--warm-grey);
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+.step h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+}
+.step p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+.step .step-highlight {
+  display: inline-block;
+  background: var(--green-pale);
+  color: var(--green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  margin-top: 1rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── WHAT IS A SYNDICATE ── */
+#syndicate { background: var(--offwhite); }
+.syn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+.syn-text p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+.syn-text p strong { color: var(--text); font-weight: 600; }
+.syn-callout {
+  background: var(--slate);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.syn-callout::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem; left: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  color: rgba(116,198,157,0.1);
+  line-height: 1;
+}
+.syn-callout blockquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.syn-callout cite {
+  font-size: 0.8rem;
+  font-style: normal;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.check-list { list-style: none; margin-top: 1.8rem; }
+.check-list li {
+  display: flex; gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list .tick {
+  width: 20px; height: 20px; min-width: 20px;
+  background: var(--green-pale);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--green);
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.cross-list { list-style: none; margin-top: 0.8rem; }
+.cross-list li {
+  display: flex; gap: 0.8rem;
+  align-items: flex-start;
+  padding: 0.6rem 0;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.cross-list li:last-child { border-bottom: none; }
+.cross-list .x {
+  width: 18px; height: 18px; min-width: 18px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  margin-top: 2px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── TRANSPARENCY ── */
+#transparency { background: var(--white); }
+.trans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+.reg-card {
+  background: var(--slate);
+  border-radius: 8px;
+  padding: 2.5rem;
+}
+.reg-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+.reg-card .reg-sub {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.reg-row {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 5px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.6rem;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem;
+}
+.reg-row label {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.reg-row span {
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-align: right;
+}
+.reg-row span.g { color: #74c69d; }
+.cleverwave-box {
+  border: 1px solid var(--warm-grey);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+.cleverwave-box h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.cleverwave-box p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+.cleverwave-box .cw-tag {
+  display: inline-block;
+  background: var(--green-pale);
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.values-list { margin-top: 0; }
+.values-list li {
+  display: flex; gap: 1rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--warm-grey);
+}
+.values-list li:first-child { padding-top: 0; }
+.values-list li:last-child { border-bottom: none; }
+.vi { font-size: 1.2rem; margin-top: 2px; }
+.vt strong { display: block; font-size: 0.92rem; margin-bottom: 0.2rem; }
+.vt span { color: var(--muted); font-size: 0.86rem; line-height: 1.6; }
+
+/* ── FAQ ── */
+#faq { background: var(--offwhite); }
+.faq-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3.5rem;
+}
+.faq-col { }
+details {
+  border-bottom: 1px solid rgba(0,0,0,0.09);
+  padding: 1.25rem 0;
+}
+summary {
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: '+';
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--green);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+details[open] summary::after { transform: rotate(45deg); }
+details p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.78;
+  padding-top: 0.75rem;
+}
+
+/* ── CONTACT ── */
+#contact { background: var(--slate); }
+#contact h2 { color: var(--white); }
+#contact .eyebrow { color: #74c69d; }
+#contact .lead { color: rgba(255,255,255,0.55); }
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  margin-top: 3.5rem;
+  align-items: start;
+}
+.contact-left p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.c-item {
+  display: flex; gap: 1rem; align-items: center;
+  margin-bottom: 1.2rem;
+}
+.c-icon {
+  width: 42px; height: 42px; min-width: 42px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.c-label { color: rgba(255,255,255,0.35); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.c-val { color: var(--white); font-weight: 500; font-size: 0.92rem; }
+.form-box {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 2.5rem;
+}
+.form-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+.form-box .form-sub { color: var(--muted); font-size: 0.86rem; margin-bottom: 1.8rem; }
+.field { margin-bottom: 1.1rem; }
+.field label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+.field input, .field textarea, .field select {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  border: 1.5px solid var(--warm-grey);
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--offwhite);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  border-color: var(--green);
+  background: var(--white);
+}
+.field textarea { resize: vertical; min-height: 90px; }
+.submit-btn {
+  width: 100%;
+  padding: 0.95rem;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 0.4rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.submit-btn:hover { background: var(--green-light); transform: translateY(-1px); }
+.form-note {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #111a26;
+  color: rgba(255,255,255,0.35);
+  padding: 2.5rem 6%;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+.footer-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  color: rgba(255,255,255,0.7);
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+footer p { max-width: 480px; }
+
+/* ── FADE UP ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-up.in { opacity: 1; transform: translateY(0); }
+
+/* ── REFERRAL ── */
+#referral { background: var(--slate); }
+#referral h2 { color: var(--white); }
+#referral .eyebrow { color: #74c69d; }
+#referral .lead { color: rgba(255,255,255,0.55); max-width: 600px; }
+.referral-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+  align-items: start;
+}
+.referral-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.ref-step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  position: relative;
+}
+.ref-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 44px;
+  width: 2px;
+  height: calc(100% - 8px);
+  background: rgba(116,198,157,0.2);
+}
+.ref-num {
+  width: 44px; height: 44px; min-width: 44px;
+  border: 2px solid rgba(116,198,157,0.4);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #74c69d;
+  background: var(--slate);
+  position: relative; z-index: 1;
+}
+.ref-content {
+  padding-bottom: 2.2rem;
+}
+.ref-content h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+.ref-content p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.payout-card {
+  background: var(--slate-mid);
+  border: 1px solid rgba(116,198,157,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.payout-header {
+  background: rgba(116,198,157,0.08);
+  border-bottom: 1px solid rgba(116,198,157,0.15);
+  padding: 1.4rem 2rem;
+}
+.payout-header p {
+  color: #74c69d;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.payout-header .total {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 2.4rem;
+  line-height: 1;
+}
+.payout-header .total span {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  font-family: 'Outfit', sans-serif;
+  margin-left: 0.3rem;
+}
+.payout-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  gap: 1rem;
+}
+.payout-row:last-child { border-bottom: none; }
+.payout-row .pr-label { color: rgba(255,255,255,0.5); font-size: 0.87rem; line-height: 1.4; }
+.payout-row .pr-label small { display: block; color: rgba(255,255,255,0.3); font-size: 0.75rem; margin-top: 0.15rem; }
+.payout-row .pr-amount {
+  font-family: 'Playfair Display', serif;
+  color: #74c69d;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+.payout-row .pr-amount small {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  margin-left: 0.2rem;
+}
+.referral-note {
+  margin-top: 1.2rem;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.8rem;
+  line-height: 1.65;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 5px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 920px) {
+  .hero-content, .syn-grid, .trans-grid, .contact-wrap, .faq-cols, .referral-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-panel { display: none; }
+  .steps { grid-template-columns: 1fr; }
+  .step { border-right: none; border-bottom: 1px solid var(--warm-grey); }
+  .step:last-child { border-bottom: none; }
+  nav .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Risk Edge <span class="accent">Systems</span></div>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#syndicate">The Syndicate</a></li>
+    <li><a href="#transparency">Transparency</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#referral">Refer a Friend</a></li>
+    <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div>
+      <p class="hero-tag">Gambling Syndicate · Canada</p>
+      <h1>You do nothing.<br>We do <em>everything.</em><br>You get paid.</h1>
+      <p class="hero-body">
+        Risk Edge Systems is a registered gambling syndicate LLP. We run casino accounts on your behalf using our own software and funding.
+        <strong>You contribute your account. We contribute the capital, the strategy, and the work.</strong>
+        Every month, you receive your share of the syndicate pool.
+      </p>
+      <a href="#contact" class="btn btn-green">Talk To Us</a>
+      <a href="#how" class="btn btn-outline">See How It Works</a>
+    </div>
+    <div>
+      <div class="hero-panel">
+        <p class="panel-title">At a Glance</p>
+        <div class="panel-row">
+          <span class="panel-label">Structure</span>
+          <span class="panel-val">Registered Gambling Syndicate LLP</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">What We Use</span>
+          <span class="panel-val">Your casino account + our capital &amp; software</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Money Required From You</span>
+          <span class="panel-val green">None. Zero. Ever.</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Work Required From You</span>
+          <span class="panel-val green">None. We handle everything.</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">How You Earn</span>
+          <span class="panel-val">Monthly profit share of the syndicate pool</span>
+        </div>
+        <div class="panel-row">
+          <span class="panel-label">Reporting</span>
+          <span class="panel-val">Monthly, fully itemised</span>
+        </div>
+        <div class="pill"><span class="pill-dot"></span> Actively Accepting New Members</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="inner">
+    <p class="eyebrow fade-up">The Process</p>
+    <h2 class="fade-up">Three steps.<br>Then we take it from there.</h2>
+    <div class="steps fade-up">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Have a Conversation</h3>
+        <p>Get in touch. Ask us anything. We'll explain exactly what we do, what's involved, and what you can expect — in plain English. No jargon, no pressure.</p>
+        <span class="step-highlight">No commitment required</span>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>We Set Up &amp; Run Your Account</h3>
+        <p>Once you're in, we set everything up. Our software identifies high-value casino bonus offers. We fund the play ourselves. You don't touch a thing — that's our job.</p>
+        <span class="step-highlight">Zero effort on your part</span>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>You Receive Your Monthly Share</h3>
+        <p>Each month you receive a full report — what was played, what the pool made, and what your share is. Your payment follows. Transparent, consistent, no surprises.</p>
+        <span class="step-highlight">Fully itemised every month</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS A SYNDICATE -->
+<section id="syndicate">
+  <div class="inner">
+    <div class="syn-grid">
+      <div>
+        <p class="eyebrow fade-up">The Syndicate Model</p>
+        <h2 class="fade-up">How a gambling syndicate actually works.</h2>
+        <div class="syn-text fade-up">
+          <p>A gambling syndicate pools resources across multiple accounts. Some accounts will be up in a given month. Some will be down. <strong>What matters is the total pool result</strong> — and every member gets their share of that.</p>
+          <p>Think of it like this: we might run 20 accounts in a month. A few win big, a couple run cold. Across the whole pool, we've made a profit — and that profit is split between all active members. <strong>No single account result defines what you earn.</strong></p>
+          <p>Our software only runs strategies where the expected value (EV) is above 20%. That means every move we make has a mathematical edge built in before we start. We don't gamble blind — we execute calculated plays on casino bonus offers where the numbers are already in our favour.</p>
+        </div>
+        <ul class="check-list fade-up">
+          <li><span class="tick">✓</span> All funding comes from us — the management</li>
+          <li><span class="tick">✓</span> You provide your account, nothing more</li>
+          <li><span class="tick">✓</span> You share in the total pool, not just your account's result</li>
+          <li><span class="tick">✓</span> Paid monthly, reported in full</li>
+        </ul>
+      </div>
+      <div>
+        <div class="syn-callout fade-up">
+          <blockquote>One account could be up a thousand. Another down five hundred. Across the pool, we're in profit — and everyone gets their share. That's the syndicate.</blockquote>
+          <cite>— James O'Donovan, Risk Edge Systems</cite>
+          <ul class="cross-list" style="margin-top: 1.8rem;">
+            <li><span class="x">✕</span> You will never be asked for money</li>
+            <li><span class="x">✕</span> You will never be asked to do anything</li>
+            <li><span class="x">✕</span> You will never be left in the dark about results</li>
+            <li><span class="x">✕</span> Your individual account result does not define your share</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPARENCY -->
+<section id="transparency">
+  <div class="inner">
+    <p class="eyebrow fade-up">Who We Are</p>
+    <h2 class="fade-up">Look us up. Verify everything.<br>That's the point.</h2>
+    <div class="trans-grid">
+      <div>
+        <div class="reg-card fade-up">
+          <h3>Company Registration</h3>
+          <p class="reg-sub">Verified · England &amp; Wales</p>
+          <div class="reg-row"><label>Company Name</label><span>Risk Edge Systems LLP</span></div>
+          <div class="reg-row"><label>Registration Number</label><span class="g">[REG NUMBER]</span></div>
+          <div class="reg-row"><label>Registered In</label><span>England &amp; Wales</span></div>
+          <div class="reg-row"><label>Operating Territory</label><span>Canada</span></div>
+          <div class="reg-row"><label>Contact</label><span>James O'Donovan</span></div>
+        </div>
+        <div class="cleverwave-box fade-up" style="margin-top: 1.2rem;">
+          <span class="cw-tag">Sister Company</span>
+          <h4>Cleverwave LLP</h4>
+          <p>Risk Edge Systems is co-owned by the management behind Cleverwave LLP, an established gambling operation with active clients across Ireland. The same strategy, software, and standards — brought to Canada.</p>
+        </div>
+      </div>
+      <div>
+        <ul class="values-list fade-up">
+          <li>
+            <span class="vi">🔎</span>
+            <div class="vt">
+              <strong>Verify us independently</strong>
+              <span>Our company registration is publicly searchable on Companies House (UK). We actively encourage you to look us up before you have any further conversation with us.</span>
+            </div>
+          </li>
+          <li>
+            <span class="vi">📄</span>
+            <div class="vt">
+              <strong>Monthly reports, line by line</strong>
+              <span>Every month you receive a full breakdown — every casino, every offer played, the pool result, and your share. Nothing rounded, nothing hidden.</span>
+            </div>
+          </li>
+          <li>
+            <span class="vi">💬</span>
+            <div class="vt">
+              <strong>You can always reach us</strong>
+              <span>We're available by email, phone, and WhatsApp. If you have a question at any point — before you join, during, or after — you'll get a real answer from a real person.</span>
+            </div>
+          </li>
+          <li>
+            <span class="vi">⚖️</span>
+            <div class="vt">
+              <strong>We only earn when the pool earns</strong>
+              <span>Our fee comes from pool profits. If the pool has a bad month, our share reflects that too. Our interests are directly aligned with yours.</span>
+            </div>
+          </li>
+          <li>
+            <span class="vi">🚪</span>
+            <div class="vt">
+              <strong>No lock-in</strong>
+              <span>If you decide this isn't for you, let us know and we'll close your account and wind things down promptly. No penalties, no awkwardness.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="inner">
+    <p class="eyebrow fade-up">Common Questions</p>
+    <h2 class="fade-up">Straight answers.<br>No waffle.</h2>
+    <div class="faq-cols fade-up">
+      <div class="faq-col">
+        <details>
+          <summary>Is this legal?</summary>
+          <p>Yes. Exploiting promotional bonus offers from licensed casinos is entirely legal. We operate within the terms of each platform. Risk Edge Systems LLP is a registered company — look us up on Companies House to confirm.</p>
+        </details>
+        <details>
+          <summary>Do I need to put any money in?</summary>
+          <p>No. Never. Not a single cent. All capital comes from the management side of the syndicate. You contribute your casino account — that's it. You will never be asked for money, not when you join, not while you're active, not ever.</p>
+        </details>
+        <details>
+          <summary>What do I actually have to do?</summary>
+          <p>Nothing. Absolutely nothing. We manage your account entirely — the strategy, the plays, the reporting. The only thing we need from you is occasional communication if something account-specific needs your input, which is rare.</p>
+        </details>
+        <details>
+          <summary>What is a gambling syndicate LLP?</summary>
+          <p>An LLP (Limited Liability Partnership) is a standard registered business structure in the UK. A gambling syndicate runs pooled strategies across multiple accounts. The LLP structure means everything is above board, registered, and legally documented.</p>
+        </details>
+      </div>
+      <div class="faq-col">
+        <details>
+          <summary>What if my account has a bad month?</summary>
+          <p>Your individual account result doesn't determine your share. The entire syndicate pool is totalled at month end and split between members. One account being down doesn't mean you lose out — you share in what the pool makes overall.</p>
+        </details>
+        <details>
+          <summary>How do you make your money?</summary>
+          <p>We take a management fee from the pool's profits. We don't earn if the pool doesn't earn. Simple as that — our financial interest is identical to yours.</p>
+        </details>
+        <details>
+          <summary>Can I leave whenever I want?</summary>
+          <p>Yes. Give us notice and we'll close everything down and you're done. No lock-in periods, no penalties, no awkward conversations. We'd rather someone leave cleanly than feel stuck.</p>
+        </details>
+        <details>
+          <summary>Who referred me here — should I trust them?</summary>
+          <p>If someone gave you this link, it's because they're already a client and they know us personally. We don't advertise publicly. Every member comes through a personal referral from someone already in the syndicate.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERRAL -->
+<section id="referral">
+  <div class="inner">
+    <p class="eyebrow fade-up">Referral Programme</p>
+    <h2 class="fade-up">Know someone who'd be<br><em style="font-style:italic; color:#74c69d;">a good fit?</em></h2>
+    <p class="lead fade-up">If you're already a client and you refer someone who joins the syndicate, we pay you $500 CAD. No catches — just a straightforward thank you for growing the network.</p>
+    <div class="referral-grid fade-up">
+      <div>
+        <p style="color:rgba(255,255,255,0.45); font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1.8rem;">How it works</p>
+        <div class="referral-steps">
+          <div class="ref-step">
+            <div class="ref-num">1</div>
+            <div class="ref-content">
+              <h4>You refer someone you trust</h4>
+              <p>Give them this link or pass on our contact details. It works best when you're comfortable vouching for us personally — which is exactly how we've always grown.</p>
+            </div>
+          </div>
+          <div class="ref-step">
+            <div class="ref-num">2</div>
+            <div class="ref-content">
+              <h4>They sign up and join the syndicate</h4>
+              <p>Once they're confirmed as an active client, your first payment is triggered automatically. No chasing, no forms to fill in.</p>
+            </div>
+          </div>
+          <div class="ref-step">
+            <div class="ref-num">3</div>
+            <div class="ref-content">
+              <h4>They reach three months</h4>
+              <p>If your referral is still active at the three-month mark, your second payment follows. That's it — $500 CAD total in your pocket.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="payout-card">
+          <div class="payout-header">
+            <p>Total Referral Reward</p>
+            <div class="total">$500 <span>CAD</span></div>
+          </div>
+          <div class="payout-row">
+            <div class="pr-label">
+              First Payment
+              <small>Paid on confirmed sign-up</small>
+            </div>
+            <div class="pr-amount">$250 <small>CAD</small></div>
+          </div>
+          <div class="payout-row">
+            <div class="pr-label">
+              Second Payment
+              <small>Paid when referral reaches 3 months active</small>
+            </div>
+            <div class="pr-amount">$250 <small>CAD</small></div>
+          </div>
+        </div>
+        <div class="referral-note">
+          The split payment structure is intentional and transparent. We pay the first half when your referral joins, and the second half once they've been with us three months. We think that's fair for everyone — and we'd rather tell you that upfront than have any surprises.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <p class="eyebrow fade-up">Get In Touch</p>
+    <h2 class="fade-up">Ask us anything.<br>We'll give you a straight answer.</h2>
+    <p class="lead fade-up" style="margin-bottom: 0;">No sales pitch. No pressure. If it's not right for you, we'll tell you that too.</p>
+    <div class="contact-wrap">
+      <div class="contact-left fade-up">
+        <p style="margin-top: 1.5rem;">The best first step is a simple message. Tell us a bit about yourself, ask whatever's on your mind, and we'll get back to you — usually within a few hours.</p>
+        <div class="c-item">
+          <div class="c-icon">✉</div>
+          <div>
+            <p class="c-label">Email</p>
+            <p class="c-val">contact@riskedgesystems.com</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">💬</div>
+          <div>
+            <p class="c-label">WhatsApp / Phone</p>
+            <p class="c-val">[Number — add once confirmed]</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">🕐</div>
+          <div>
+            <p class="c-label">Response Time</p>
+            <p class="c-val">Usually within a few hours</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">🔒</div>
+          <div>
+            <p class="c-label">Privacy</p>
+            <p class="c-val">Your details are never shared</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-box fade-up">
+        <h3>Send a Message</h3>
+        <p class="form-sub">No question is too basic. Ask away.</p>
+        <div class="field">
+          <label>Your Name</label>
+          <input type="text" placeholder="e.g. John Smith">
+        </div>
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@email.com">
+        </div>
+        <div class="field">
+          <label>Province or Location</label>
+          <input type="text" placeholder="e.g. Ontario, BC, Alberta...">
+        </div>
+        <div class="field">
+          <label>Your Question or Message</label>
+          <textarea placeholder="Ask anything. We'll give you a straight answer."></textarea>
+        </div>
+        <button class="submit-btn">Send Message →</button>
+        <p class="form-note">Your details are never shared with anyone. This is a private, referral-only operation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand">Risk Edge Systems LLP</p>
+      <p>Registered in England &amp; Wales · Company No. [XXXXXXXX]<br>
+      Operating Territory: Canada · Contact: James O'Donovan</p>
+    </div>
+    <div>
+      <p>This website is not a public advertisement. It is shared privately on a referral basis only. Gambling involves risk. Past performance of the syndicate pool is not a guarantee of future results. Please only participate if you are comfortable with the nature of gambling syndicate operations.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
